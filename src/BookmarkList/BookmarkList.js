@@ -12,7 +12,7 @@ class BookmarkList extends Component {
   static contextType = BookmarksContext;
 
   render() {
-    const { bookmarks } = this.context
+    const { bookmarks } = this.context;
     return (
       <section className='BookmarkList'>
         <h2>Your bookmarks</h2>
@@ -31,9 +31,13 @@ class BookmarkList extends Component {
 
 BookmarkList.propTypes = {
   bookmarks: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
+    ]).isRequired,
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    rating: PropTypes.number,
+    rating: PropTypes.number.isRequired,
     description: PropTypes.string
   }))
 };
